@@ -1,5 +1,5 @@
 import sys
-from PyQt6.QtWidgets import QApplication, QDialog,QApplication, QMainWindow,QTabWidget
+from PyQt6.QtWidgets import QApplication, QMainWindow
 from first_window import Ui_MainWindow
 
 class ImageDialog(QMainWindow):
@@ -20,12 +20,12 @@ class ImageDialog(QMainWindow):
                 if self.ui.tableWidget.item(row,column) == None:
                     pass
                 else:
-                    if column == 1:
+                    if column == 0:
                         P.append(self.ui.tableWidget.item(row, column).text())
 
-                    elif column ==2:
+                    elif column ==1:
                         H.append(self.ui.tableWidget.item(row, column).text())
-        print(P,H)
+        return P,H
 
 
 app = QApplication(sys.argv)

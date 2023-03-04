@@ -33,9 +33,9 @@
      <widget class="QTableWidget" name="tableWidget">
       <property name="geometry">
        <rect>
-        <x>10</x>
-        <y>70</y>
-        <width>481</width>
+        <x>20</x>
+        <y>60</y>
+        <width>301</width>
         <height>421</height>
        </rect>
       </property>
@@ -91,17 +91,12 @@
       </row>
       <column>
        <property name="text">
-        <string>N</string>
+        <string>P, МПа</string>
        </property>
       </column>
       <column>
        <property name="text">
-        <string>P</string>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>H</string>
+        <string>H,м</string>
        </property>
       </column>
      </widget>
