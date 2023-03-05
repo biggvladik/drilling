@@ -25,7 +25,9 @@ class ImageDialog(QMainWindow):
 
                     elif column ==1:
                         H.append(self.ui.tableWidget.item(row, column).text())
+        print(P,H)
         return P,H
+
 
 
 app = QApplication(sys.argv)
