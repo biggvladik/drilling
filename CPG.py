@@ -8,26 +8,25 @@ import pandas as pd
 H=[200,500,900,1400,1800,2000,2340,2700,2950,3300]
 Pre=[2.1,6.05,7.96,12.56,18,29.67,27.31,30.93,31.42,37.09]
 
+
+
 def CPG(H,Pre):
     n=len(H)
     Pfr=[]
     Ka=[]
     Kfr=[]
     Phs=[]
-
     for i in range(n):                              # Получение расчётных данных
         Pfr.append(0.0083*H[i]+0.66*Pre[i])
         Phs.append(1000*9.81*H[i]*10**-6)
         Ka.append(Pre[i]/Phs[i])
         Kfr.append(Pfr[i]/Phs[i])
-
     fig =go.Figure()
     fig.update_yaxes(range=[H[-1]+700,-100 ])            #Коэффициенты для масштаба?
     fig.update_xaxes(range=[0.8, 2],side='top')
     H_fig=H.copy()
     Ka_fig=Ka.copy()
     Kfr_fig=Kfr.copy()
-
     j=0
     while j<2*n-2:                                  # Выравнивание графика пластовых давлений
         if Ka_fig[j]!=Ka_fig[j+1]:
@@ -38,10 +37,7 @@ def CPG(H,Pre):
     H_fig.insert(0, 0)
     Ka_fig.append(Ka_fig[-1])
     H_fig.append(H_fig[-1]+500)
-
     fig.add_trace(go.Scatter(x=Ka_fig, y=H_fig,name='P пластовое<sup></sup>'))
-
-
     k=0
     while k<2*n-2:                                     # Выравнивание графика давлений гидроразрыва
         if Kfr_fig[k]!=Kfr_fig[k+1]:
@@ -55,8 +51,6 @@ def CPG(H,Pre):
                 xaxis_title="Градиент давлений, МПа/100м",
                 yaxis_title="Глубина спуска колонн, м",
                 margin=dict(l=30, r=30, t=30, b=30))
-
-
     intervals=0
     len_intervals=0
     H_intervals=[]
@@ -98,8 +92,6 @@ def CPG(H,Pre):
         H_max.append(H_max[0])
         Ka_max.append(Ka_max[0])
         fig.add_trace(go.Scatter(x=Ka_max, y=H_max, name='Интервал бурения<sup></sup>'))
-
-
         ind_del_min = H_fig.index(min(H_max))+1
         ind_del_max = H_fig.index(max(H_max))+1
         for g in range(ind_del_max-ind_del_min):
@@ -111,8 +103,8 @@ def CPG(H,Pre):
         H_intervals.append(max(H_max))
 
 
-
-    return H_intervals
-a=CPG(H,Pre)
-#a.show()
-print(a)
+    return fig,H_intervals,intervals
+a,b,c=CPG(H,Pre)
+a.show()
+print("Количество интервалов бурения:",c)
+print("Глубины интервалов бурения:" ,b)
