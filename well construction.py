@@ -24,7 +24,8 @@ def construction(H_intervals, intervals,Q,well_type):
            313.5:339.7,315.3:339.7,317.9:339.7,320.3:339.7,322.9:339.7,327:351,329:351,331:351,333:351,353:377,355:377,
            357:377,359:377,373:406.4,381.2:406.4,384.2:406.4,387.4:406.4,402:426,404:426,406:426,450.9:473.1,475.8:508,482.6:508,485.8:508}
     well_construcion=[]
-
+    intervals+=1
+    H_intervals.append(40)
     if well_type=='Oil':
         for key in Q_OD_Oil:
             if Q<key:
@@ -42,7 +43,7 @@ def construction(H_intervals, intervals,Q,well_type):
             s=round(0.5*(D-d),1)
             break
     for i in range(intervals):
-        well_construcion.append({'H_intervals':H_intervals[i],'Db':0,'Dm':0,'D':D,'d':d,'s':s})
+        well_construcion.append({'H_intervals':H_intervals[i],'Db':0,'Dm':0,'D':D,'d':d,'s':s,'size':int(D + (0.5 if D > 0 else -0.5))})
         for key in OD_coupling_diameter:
             if D==key:
                 Dm=OD_coupling_diameter[key]
