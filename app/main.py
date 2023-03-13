@@ -27,12 +27,13 @@ class ImageDialog(QMainWindow):
 
                     elif column ==1:
                         H.append(float(self.ui.tableWidget.item(row, column).text()))
+        print(H,P)
         return H,P
 
     def get_graph(self):
         H,P = self.get_data()
-        print(H,P)
-        CPG(H,P)
+        H_intervals, intervals, graph = CPG(H,P)
+        self.ui.lineEdit_2.setText(str(intervals))
 
     def check_label(self):
         if self.ui.comboBox.currentText() == 'Нефтяная':
@@ -40,8 +41,6 @@ class ImageDialog(QMainWindow):
         else:
             self.ui.label_4.setText('м^3/сутки')
 
-    def testt(self):
-        print(5)
 
 
 
