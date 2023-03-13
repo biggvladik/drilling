@@ -12,6 +12,7 @@ class ImageDialog(QMainWindow):
 
         self.ui.pushButton.clicked.connect(self.get_data)
         self.ui.pushButton_2.clicked.connect(self.get_graph)
+        self.ui.comboBox.currentTextChanged.connect(self.check_label)
 
     def get_data(self):
         P =[]
@@ -33,6 +34,16 @@ class ImageDialog(QMainWindow):
         print(H,P)
         CPG(H,P)
 
+    def check_label(self):
+        if self.ui.comboBox.currentText() == 'Нефтяная':
+            self.ui.label_4.setText('т/сутки')
+        else:
+            self.ui.label_4.setText('м^3/сутки')
+
+    def testt(self):
+        print(5)
+
+
 
 
 
@@ -40,5 +51,14 @@ app = QApplication(sys.argv)
 window = ImageDialog()
 
 window.show()
+
+
+
+print(window.ui.comboBox.currentText())
 sys.exit(app.exec())
+
+
+
+
+
 

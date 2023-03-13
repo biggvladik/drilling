@@ -159,6 +159,6 @@ class Ui_MainWindow(object):
         self.comboBox.setItemText(1, _translate("MainWindow", "Газовая"))
         self.label_3.setText(_translate("MainWindow", "КОЛ-ВО ИНТЕРВАЛОВ"))
         self.label_2.setText(_translate("MainWindow", "ДЕБИТ"))
-        self.label_4.setText(_translate("MainWindow", "TextLabel"))
+        self.label_4.setText(_translate("MainWindow", "т/сутки"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", "Tab 2"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "Page"))

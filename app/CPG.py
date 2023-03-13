@@ -101,8 +101,4 @@ def CPG(H,Pre):
         intervals+=1
         H_intervals.append(max(H_max))
     return H_intervals,intervals,fig.show()
-#a,b,c=CPG(H,Pre)
-#a.show()
-#print("Количество интервалов бурения:",c)
-#print("Глубины интервалов бурения:" ,b)
 
