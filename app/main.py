@@ -50,7 +50,9 @@ class ImageDialog(QMainWindow):
 
     def calculate_table(self):
         Q = int(self.ui.lineEdit.text())
-        data = construction(H_intervals,intervals,Q,'Oil')
+        Type = self.ui.comboBox.currentText()
+        print(Type)
+        data = construction(H_intervals,intervals,Q,Type)
 
         # data = [{'Db': 320,'Dm': 269.9,'D': 244.5,'d': 224.5,'s': 10.0,'size': 245, 'H_intervals': 40},
         #         {'H_intervals': 2000, 'Db': 222.3, 'Dm': 187.7, 'D': 168.3, 'd': 144.1, 's': 12.1, 'size': 168},
