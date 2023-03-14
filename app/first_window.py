@@ -133,10 +133,10 @@ class Ui_MainWindow(object):
         self.frame_4.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_4.setObjectName("frame_4")
         self.tableWidget_2 = QtWidgets.QTableWidget(parent=self.frame_4)
-        self.tableWidget_2.setGeometry(QtCore.QRect(20, 140, 931, 331))
+        self.tableWidget_2.setGeometry(QtCore.QRect(20, 140, 931, 301))
         self.tableWidget_2.setObjectName("tableWidget_2")
         self.tableWidget_2.setColumnCount(5)
-        self.tableWidget_2.setRowCount(8)
+        self.tableWidget_2.setRowCount(7)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -151,8 +151,6 @@ class Ui_MainWindow(object):
         self.tableWidget_2.setVerticalHeaderItem(5, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setVerticalHeaderItem(6, item)
-        item = QtWidgets.QTableWidgetItem()
-        self.tableWidget_2.setVerticalHeaderItem(7, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_2.setHorizontalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
@@ -170,7 +168,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

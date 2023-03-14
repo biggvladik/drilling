@@ -49,24 +49,49 @@ class ImageDialog(QMainWindow):
 
 
     def calculate_table(self):
-        # Q = int(self.ui.lineEdit.text())
-        # print(H_intervals,intervals,Q)
-        # data = construction(H_intervals,intervals,Q,'Oil')
-        # print(data)
+        Q = int(self.ui.lineEdit.text())
+        data = construction(H_intervals,intervals,Q,'Oil')
 
-        data = [{'H_intervals': 40, 'Db': 320, 'Dm': 269.9, 'D': 244.5, 'd': 224.5, 's': 10.0, 'size': 245},
-                {'H_intervals': 2000, 'Db': 222.3, 'Dm': 187.7, 'D': 168.3, 'd': 144.1, 's': 12.1, 'size': 168},
-                {'H_intervals': 3450, 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114}]
+        # data = [{'Db': 320,'Dm': 269.9,'D': 244.5,'d': 224.5,'s': 10.0,'size': 245, 'H_intervals': 40},
+        #         {'H_intervals': 2000, 'Db': 222.3, 'Dm': 187.7, 'D': 168.3, 'd': 144.1, 's': 12.1, 'size': 168},
+        #         {'H_intervals': "Промежутка_1", 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114},
+        #         {'H_intervals': "Промежутка_2", 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114},
+        #         {'H_intervals': 3450, 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114}]
 
-        N = data[0]
-        K = data[1]
-        E = data[-1]
-        count = 1
+        N = [ i for i in data[0].values()]
+        K = [ i for i in data[1].values()]
+        E = [ i for i in data[-1].values()]
+        P_1 = False
+        P_2 = False
+        if len(data) ==4:
+            P_1 = [ i for i in data[2].values()]
+
+        if len(data) ==5:
+            P_1 = [ i for i in data[2].values()]
+            P_2 = [i for i in data[3].values()]
+
         for column in range(0, self.ui.tableWidget_2.columnCount()):
             for row in range(0, self.ui.tableWidget_2.rowCount()):
-                self.ui.tableWidget_2.setItem(row,column,QTableWidgetItem(str(count)))
                 if column == 0:
-                    if row == 0:
+                    print(type(row))
+                    self.ui.tableWidget_2.setItem(row, column, QTableWidgetItem(str(N[row])))
+
+                elif column == 1:
+                    self.ui.tableWidget_2.setItem(row, column, QTableWidgetItem(str(K[row])))
+
+                elif column == 4:
+                    self.ui.tableWidget_2.setItem(row, column, QTableWidgetItem(str(E[row])))
+
+                elif column == 2 and P_1:
+                    self.ui.tableWidget_2.setItem(row, column, QTableWidgetItem(str(P_1[row])))
+
+                elif column == 3 and P_2:
+                    self.ui.tableWidget_2.setItem(row, column, QTableWidgetItem(str(P_2[row])))
+
+
+
+
+
 
 
 
