@@ -69,11 +69,11 @@ def construction(H_intervals, intervals,Q,well_type):
 
 
 
-# a=construction(H_intervals,intervals, Q, well_type)
-# for k in range (len(a)-1,-1,-1):
-#     print(a[k])
+a=construction(H_intervals,intervals, Q, well_type)
+for k in range (len(a)-1,-1,-1):
+    print(a[k])
 
-# {'H_intervals': 40, 'Db': 320, 'Dm': 269.9, 'D': 244.5, 'd': 224.5, 's': 10.0, 'size': 245}
-# {'H_intervals': 2000, 'Db': 222.3, 'Dm': 187.7, 'D': 168.3, 'd': 144.1, 's': 12.1, 'size': 168}
-# {'H_intervals': 3450, 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114}
+{'H_intervals': 40, 'Db': 320, 'Dm': 269.9, 'D': 244.5, 'd': 224.5, 's': 10.0, 'size': 245}
+{'H_intervals': 2000, 'Db': 222.3, 'Dm': 187.7, 'D': 168.3, 'd': 144.1, 's': 12.1, 'size': 168}
+{'H_intervals': 3450, 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114}
 
