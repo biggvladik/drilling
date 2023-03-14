@@ -3,7 +3,6 @@ from PyQt6.QtWidgets import QApplication, QMainWindow,QTableWidgetItem
 from first_window import Ui_MainWindow
 from CPG import CPG
 from well_construction import construction
-H_intervals = 0
 intervals = 0
 class ImageDialog(QMainWindow):
     def __init__(self):
@@ -35,10 +34,10 @@ class ImageDialog(QMainWindow):
         return H,P
 
     def get_graph(self):
-        global H_intervals
         global intervals
         H,P = self.get_data()
         H_intervals, intervals, graph = CPG(H,P)
+        print(H_intervals,intervals)
         self.ui.lineEdit_2.setText(str(intervals))
 
     def check_label(self):
@@ -50,6 +49,7 @@ class ImageDialog(QMainWindow):
 
     def calculate_table(self):
         Q = int(self.ui.lineEdit.text())
+        H_intervals = int(self.ui.lineEdit_2.text())
         Type = self.ui.comboBox.currentText()
         print(Type)
         data = construction(H_intervals,intervals,Q,Type)
