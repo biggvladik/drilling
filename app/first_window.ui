@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>866</width>
-    <height>620</height>
+    <width>1124</width>
+    <height>840</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,16 +19,16 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>791</width>
-      <height>571</height>
+      <width>1091</width>
+      <height>811</height>
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
-      <string>Tab 1</string>
+      <string>1 страница</string>
      </attribute>
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
@@ -51,7 +51,7 @@
          <x>20</x>
          <y>30</y>
          <width>281</width>
-         <height>431</height>
+         <height>441</height>
         </rect>
        </property>
        <row>
@@ -101,6 +101,11 @@
        </row>
        <row>
         <property name="text">
+         <string>9</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
          <string>10</string>
         </property>
        </row>
@@ -132,7 +137,7 @@
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
-      <string>Tab 2</string>
+      <string>2 страница</string>
      </attribute>
      <layout class="QHBoxLayout" name="horizontalLayout_3">
       <item>
@@ -171,12 +176,12 @@
            <string>График</string>
           </property>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>30</x>
             <y>30</y>
-            <width>178</width>
+            <width>194</width>
             <height>24</height>
            </rect>
           </property>
@@ -204,7 +209,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>30</x>
@@ -226,7 +231,7 @@
            </item>
           </layout>
          </widget>
-         <widget class="QWidget" name="">
+         <widget class="QWidget" name="layoutWidget">
           <property name="geometry">
            <rect>
             <x>31</x>
@@ -262,8 +267,112 @@
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
-      <string>Page</string>
+      <string>3 страница</string>
      </attribute>
+     <widget class="QFrame" name="frame_4">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>30</y>
+        <width>1051</width>
+        <height>671</height>
+       </rect>
+      </property>
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <widget class="QTableWidget" name="tableWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>40</x>
+         <y>40</y>
+         <width>961</width>
+         <height>461</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Ignored">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="sizeIncrement">
+        <size>
+         <width>10</width>
+         <height>9</height>
+        </size>
+       </property>
+       <row>
+        <property name="text">
+         <string>Обсадная колонна</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Направление</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Кондуктор</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Промежуточная</string>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Эксплуатационная</string>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>Диаметр долота,мм</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Диаметр муфты,мм</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Наружный диаметр,мм</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Толщина стенки обсадной колонны,мм</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Типоразмер обсадной колонны,мм</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Глубина спуска обсадной колонны,м</string>
+        </property>
+       </column>
+       <item row="0" column="0">
+        <property name="text">
+         <string/>
+        </property>
+       </item>
+      </widget>
+     </widget>
     </widget>
    </widget>
   </widget>
