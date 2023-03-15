@@ -40,6 +40,13 @@ class ImageDialog(QMainWindow):
         print(H_intervals,intervals)
         self.ui.lineEdit_2.setText(str(intervals))
 
+        for column in range(0, self.ui.tableWidget_3.columnCount()):
+            for row in range(len(H_intervals)):
+                self.ui.tableWidget_3.setItem(row, column, QTableWidgetItem(str(H_intervals[row])))
+
+
+
+
     def check_label(self):
         if self.ui.comboBox.currentText() == 'Нефтяная':
             self.ui.label_4.setText('т/сутки')
@@ -49,16 +56,20 @@ class ImageDialog(QMainWindow):
 
     def calculate_table(self):
         Q = int(self.ui.lineEdit.text())
-        H_intervals = int(self.ui.lineEdit_2.text())
-        Type = self.ui.comboBox.currentText()
-        print(Type)
-        data = construction(H_intervals,intervals,Q,Type)
+        intervals = int(self.ui.lineEdit_2.text())
+        Type = str(self.ui.comboBox.currentText())
+        H_intervals = []
 
-        # data = [{'Db': 320,'Dm': 269.9,'D': 244.5,'d': 224.5,'s': 10.0,'size': 245, 'H_intervals': 40},
-        #         {'H_intervals': 2000, 'Db': 222.3, 'Dm': 187.7, 'D': 168.3, 'd': 144.1, 's': 12.1, 'size': 168},
-        #         {'H_intervals': "Промежутка_1", 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114},
-        #         {'H_intervals': "Промежутка_2", 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114},
-        #         {'H_intervals': 3450, 'Db': 139.7, 'Dm': 127, 'D': 114.3, 'd': 101.5, 's': 6.4, 'size': 114}]
+        for row in range(4):
+            if self.ui.tableWidget_3.item(row, 0):
+                print(1)
+                H_intervals.append(int(self.ui.tableWidget_3.item(row, 0).text()))
+
+        print(H_intervals[::-1],intervals,Q,Type)
+
+
+        data = construction(H_intervals[::-1],intervals,Q,Type)
+        print(data)
 
         N = [ i for i in data[0].values()]
         K = [ i for i in data[1].values()]
