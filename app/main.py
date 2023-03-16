@@ -91,7 +91,6 @@ class ImageDialog(QMainWindow):
 
                 elif column == 1:
                     self.ui.tableWidget_2.setItem(row, column, QTableWidgetItem(str(K[row])))
-
                 elif column == 4:
                     self.ui.tableWidget_2.setItem(row, column, QTableWidgetItem(str(E[row])))
 
