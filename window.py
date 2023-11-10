@@ -329,10 +329,29 @@ class Ui_MainWindow(object):
         self.label_6 = QtWidgets.QLabel(self.frame_2)
         self.label_6.setGeometry(QtCore.QRect(510, 0, 601, 211))
         self.label_6.setStyleSheet("font: bold 12px;\n"
-" background-color: rgb(170, 170, 255)\n"
+"background-color: rgb(170, 170, 255);\n"
+"border-style: outset;\n"
+"border-width: 2px;\n"
+"border-radius: 10px;\n"
+"border-color: black;\n"
 "\n"
 "")
         self.label_6.setObjectName("label_6")
+        self.pushButton_5 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_5.setGeometry(QtCore.QRect(410, 270, 91, 31))
+        self.pushButton_5.setStyleSheet("QPushButton#pushButton_5 {\n"
+"    border-style: outset;\n"
+"    border-width: 2px;\n"
+"    border-radius: 10px;\n"
+"    border-color: black;\n"
+"    font: bold 14px;\n"
+"    background-color:rgb(170, 170, 255);\n"
+"}\n"
+"QPushButton#pushButton_5:hover {\n"
+"  background-color: #e7e7e7;\n"
+"}\n"
+"")
+        self.pushButton_5.setObjectName("pushButton_5")
         self.widget = QtWidgets.QWidget(self.frame_2)
         self.widget.setGeometry(QtCore.QRect(270, 60, 198, 22))
         self.widget.setObjectName("widget")
@@ -457,7 +476,8 @@ class Ui_MainWindow(object):
         item = self.tableWidget_2.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Эксп."))
         self.pushButton_4.setText(_translate("MainWindow", "Расчитать"))
-        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">ИНСТРУКЦИЯ</p><p>&quot;Готово&quot; - рассчитает глубины спуска</p><p>( Необходимо заполнить 1-ую таблицы и ввести дебит скважины )</p><p>&quot;График&quot; - построит график совмещенных давлений</p><p>( Необходимо заполнить 1-ую таблицу и рассчитать/ввести глубины спуска )</p><p>&quot;Расчитать&quot; - рассчитает диаметры</p><p>( Необходимы глубины спуска и дебит )</p><p>Если ничего не происходит, значит вы ввели что-то не так, или оно сломалось!!</p><p><br/></p></body></html>"))
+        self.label_6.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\">ИНСТРУКЦИЯ</p><p>&quot;Готово&quot; - рассчитает глубины спуска</p><p>( Необходимо заполнить 1-ую таблицы и ввести дебит скважины )</p><p>&quot;График&quot; - построит график совмещенных давлений</p><p>( Необходимо заполнить 1-ую таблицу и рассчитать/ввести глубины спуска )</p><p>&quot;Расчитать&quot; - рассчитает диаметры</p><p>( Необходимы глубины спуска и дебит )</p><p><span style=\" color:#ff0000;\">Если ничего не происходит, значит вы ввели что-то не так, или оно сломалось!!</span></p><p><br/></p></body></html>"))
+        self.pushButton_5.setText(_translate("MainWindow", "PDF"))
         self.label_2.setText(_translate("MainWindow", "ДЕБИТ"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab), _translate("MainWindow", "1 страница"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), _translate("MainWindow", "3 страница"))

@@ -620,12 +620,43 @@ QPushButton#pushButton_4:hover {
        </property>
        <property name="styleSheet">
         <string notr="true">font: bold 12px;
- background-color: rgb(170, 170, 255)
+background-color: rgb(170, 170, 255);
+border-style: outset;
+border-width: 2px;
+border-radius: 10px;
+border-color: black;
 
 </string>
        </property>
        <property name="text">
-        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;ИНСТРУКЦИЯ&lt;/p&gt;&lt;p&gt;&amp;quot;Готово&amp;quot; - рассчитает глубины спуска&lt;/p&gt;&lt;p&gt;( Необходимо заполнить 1-ую таблицы и ввести дебит скважины )&lt;/p&gt;&lt;p&gt;&amp;quot;График&amp;quot; - построит график совмещенных давлений&lt;/p&gt;&lt;p&gt;( Необходимо заполнить 1-ую таблицу и рассчитать/ввести глубины спуска )&lt;/p&gt;&lt;p&gt;&amp;quot;Расчитать&amp;quot; - рассчитает диаметры&lt;/p&gt;&lt;p&gt;( Необходимы глубины спуска и дебит )&lt;/p&gt;&lt;p&gt;Если ничего не происходит, значит вы ввели что-то не так, или оно сломалось!!&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;ИНСТРУКЦИЯ&lt;/p&gt;&lt;p&gt;&amp;quot;Готово&amp;quot; - рассчитает глубины спуска&lt;/p&gt;&lt;p&gt;( Необходимо заполнить 1-ую таблицы и ввести дебит скважины )&lt;/p&gt;&lt;p&gt;&amp;quot;График&amp;quot; - построит график совмещенных давлений&lt;/p&gt;&lt;p&gt;( Необходимо заполнить 1-ую таблицу и рассчитать/ввести глубины спуска )&lt;/p&gt;&lt;p&gt;&amp;quot;Расчитать&amp;quot; - рассчитает диаметры&lt;/p&gt;&lt;p&gt;( Необходимы глубины спуска и дебит )&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ff0000;&quot;&gt;Если ничего не происходит, значит вы ввели что-то не так, или оно сломалось!!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_5">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>270</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#pushButton_5 {
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    font: bold 14px;
+	background-color:rgb(170, 170, 255);
+}
+QPushButton#pushButton_5:hover {
+  background-color: #e7e7e7;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>PDF</string>
        </property>
       </widget>
       <widget class="QWidget" name="">

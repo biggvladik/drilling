@@ -3,10 +3,9 @@ import traceback
 
 from PyQt5.QtWidgets import QApplication, QMainWindow,QTableWidgetItem
 from window import Ui_MainWindow
-from CPG import CPG
-from well_construction import construction
-intervals = 0
 from wk import Well
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 class ImageDialog(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -21,6 +20,7 @@ class ImageDialog(QMainWindow):
         self.well = None
         self.ui.pushButton_4.clicked.connect(self.calculate_table)
         self.check_label()
+        self.ui.pushButton_5.clicked.connect(self.create_pdf)
 
         try:
             self.test_table()
@@ -130,6 +130,56 @@ class ImageDialog(QMainWindow):
 
 
 
+    def create_pdf(self):
+        # Получаем данные таблицы и создаем PDF файл
+        data = []
+        P = []
+        H = []
+
+        # Записываем 1ую таблицу
+        for row in range(self.ui.tableWidget.rowCount()):
+            for column in range(self.ui.tableWidget.columnCount()):
+                item = self.ui.tableWidget.item(row, column)
+                if item is not None:
+                    if column == 0:
+                        P.append(item.text())
+                    else:
+                        H.append(item.text())
+                    data.append(item.text())
+
+        pdf_file = "example.pdf"
+
+        c = canvas.Canvas(pdf_file, pagesize=letter)
+
+        # Записываем данные в PDF файл
+        x = 50
+        y = 750
+        c.drawString(x, y, 'H, m')
+        y-=20
+        for item in H:
+            c.drawString(x, y, item)
+            y -= 20
+            if y < 50:
+                c.showPage()
+                y = 750
+        x = 150
+        y = 750
+        c.drawString(x, y, 'P, MPa')
+        y -= 20
+        for item in P:
+            c.drawString(x, y, item)
+            y -= 20
+            if y < 50:
+                c.showPage()
+                y = 750
+
+        # Записываем 2ую таблицу
+
+
+
+        c.save()
+
+        print("PDF файл создан!")
 
 
 
