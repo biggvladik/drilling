@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1124</width>
-    <height>840</height>
+    <height>721</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,7 +19,7 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>1091</width>
+      <width>1121</width>
       <height>811</height>
      </rect>
     </property>
@@ -33,10 +33,10 @@
      <widget class="QFrame" name="frame_2">
       <property name="geometry">
        <rect>
-        <x>0</x>
-        <y>10</y>
-        <width>1081</width>
-        <height>781</height>
+        <x>-20</x>
+        <y>0</y>
+        <width>1131</width>
+        <height>831</height>
        </rect>
       </property>
       <property name="frameShape">
@@ -48,20 +48,44 @@
       <widget class="QTableWidget" name="tableWidget">
        <property name="geometry">
         <rect>
-         <x>20</x>
+         <x>30</x>
          <y>30</y>
-         <width>231</width>
-         <height>371</height>
+         <width>226</width>
+         <height>327</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 1px solid black;</string>
+        <string notr="true">QTableWidget {
+                background-color: rgb(187, 255, 216);
+				border: 2px solid black;
+            }
+QHeaderView::section {
+                background-color: rgb(85, 170, 127);
+                color: #333;
+                border: none;
+            }</string>
        </property>
-       <row>
-        <property name="text">
-         <string/>
-        </property>
-       </row>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderStretchLastSection">
+        <bool>false</bool>
+       </attribute>
        <row>
         <property name="text">
          <string>1</string>
@@ -116,21 +140,47 @@
         <property name="text">
          <string>P, МПа</string>
         </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
        </column>
        <column>
         <property name="text">
          <string>H,м</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
         </property>
        </column>
       </widget>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>400</x>
-         <y>270</y>
+         <x>410</x>
+         <y>150</y>
          <width>93</width>
          <height>28</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#pushButton {
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    font: bold 14px;
+	background-color: rgb(170, 170, 255);
+}
+QPushButton#pushButton:hover {
+  background-color: #e7e7e7;
+}
+</string>
        </property>
        <property name="text">
         <string>Готово</string>
@@ -203,82 +253,56 @@ QComboBox::down-arrow:on { /* shift the arrow when popup is open */
         </item>
        </layout>
       </widget>
-      <widget class="QWidget" name="layoutWidget_3">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>60</y>
-         <width>241</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
-        <item>
-         <widget class="QLabel" name="label_2">
-          <property name="styleSheet">
-           <string notr="true">font: bold 14px;
-max-height: 1em;</string>
-          </property>
-          <property name="text">
-           <string>ДЕБИТ</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit"/>
-        </item>
-        <item>
-         <widget class="QLabel" name="label_4">
-          <property name="styleSheet">
-           <string notr="true">font: bold 14px;
-max-height: 1em;</string>
-          </property>
-          <property name="text">
-           <string/>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </widget>
-      <widget class="QWidget" name="layoutWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>270</x>
-         <y>90</y>
-         <width>241</width>
-         <height>24</height>
-        </rect>
-       </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <item>
-         <widget class="QLabel" name="label_3">
-          <property name="styleSheet">
-           <string notr="true">font: bold 14px;
-max-height: 1em;</string>
-          </property>
-          <property name="text">
-           <string>КОЛ-ВО ИНТЕРВАЛОВ</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="lineEdit_2"/>
-        </item>
-       </layout>
-      </widget>
       <widget class="QTableWidget" name="tableWidget_3">
        <property name="geometry">
         <rect>
          <x>270</x>
-         <y>120</y>
-         <width>121</width>
-         <height>181</height>
+         <y>130</y>
+         <width>119</width>
+         <height>177</height>
         </rect>
        </property>
        <property name="styleSheet">
-        <string notr="true">border: 1px solid black;
-</string>
+        <string notr="true">QTableWidget {
+                background-color: rgb(187, 255, 216);
+				border: 2px solid black;
+            }
+QHeaderView::section {
+                background-color: rgb(85, 170, 127);
+                color: #333;
+                border: none;
+            }</string>
        </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderStretchLastSection">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderCascadingSectionResizes">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderHighlightSections">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+        <bool>false</bool>
+       </attribute>
+       <attribute name="verticalHeaderStretchLastSection">
+        <bool>false</bool>
+       </attribute>
        <row>
         <property name="text">
          <string>1</string>
@@ -308,20 +332,363 @@ max-height: 1em;</string>
         <property name="text">
          <string>Глубина спуска</string>
         </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
        </column>
       </widget>
       <widget class="QPushButton" name="pushButton_2">
        <property name="geometry">
         <rect>
-         <x>500</x>
-         <y>270</y>
+         <x>410</x>
+         <y>190</y>
          <width>93</width>
          <height>28</height>
         </rect>
        </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#pushButton_2 {
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    font: bold 14px;
+	background-color:rgb(170, 170, 255);
+}
+QPushButton#pushButton_2:hover {
+  background-color: #e7e7e7;
+}
+</string>
+       </property>
        <property name="text">
         <string>График</string>
        </property>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_4">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>90</y>
+         <width>181</width>
+         <height>24</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="styleSheet">
+           <string notr="true">font: bold 14px;
+max-height: 1em;</string>
+          </property>
+          <property name="text">
+           <string>V цемента</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit_2">
+          <property name="enabled">
+           <bool>false</bool>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    border: 2px solid gray;
+    padding: 0 8px;
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_5">
+          <property name="styleSheet">
+           <string notr="true">font: bold 14px;
+max-height: 1em;</string>
+          </property>
+          <property name="text">
+           <string>м^3</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTableWidget" name="tableWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>30</x>
+         <y>400</y>
+         <width>744</width>
+         <height>214</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QTableWidget {
+                background-color: rgb(187, 255, 216);
+				border: 2px solid black;
+            }
+QHeaderView::section {
+                background-color: rgb(85, 170, 127);
+                color: #333;
+                border: none;
+            }</string>
+       </property>
+       <attribute name="horizontalHeaderVisible">
+        <bool>false</bool>
+       </attribute>
+       <row>
+        <property name="text">
+         <string>Диаметр долота, мм</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Диаметр муфты, мм</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Наружный диаметр, мм</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Внутренний диаметр,мм</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Толщина стенки обсадной колонны, мм</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Типоразмер обсадной колонны</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </row>
+       <row>
+        <property name="text">
+         <string>Глубина спуска обсадной колонны,м</string>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </row>
+       <column>
+        <property name="text">
+         <string>Направление</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="background">
+         <color>
+          <red>170</red>
+          <green>170</green>
+          <blue>255</blue>
+         </color>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Кондуктор</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Промежуточная</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Промежуточная</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>Эксп.</string>
+        </property>
+        <property name="font">
+         <font>
+          <pointsize>9</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+       </column>
+      </widget>
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="geometry">
+        <rect>
+         <x>410</x>
+         <y>230</y>
+         <width>91</width>
+         <height>31</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton#pushButton_4 {
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: black;
+    font: bold 14px;
+	background-color:rgb(170, 170, 255);
+}
+QPushButton#pushButton_4:hover {
+  background-color: #e7e7e7;
+}
+</string>
+       </property>
+       <property name="text">
+        <string>Расчитать</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_6">
+       <property name="geometry">
+        <rect>
+         <x>510</x>
+         <y>0</y>
+         <width>601</width>
+         <height>211</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: bold 12px;
+ background-color: rgb(170, 170, 255)
+
+</string>
+       </property>
+       <property name="text">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;ИНСТРУКЦИЯ&lt;/p&gt;&lt;p&gt;&amp;quot;Готово&amp;quot; - рассчитает глубины спуска&lt;/p&gt;&lt;p&gt;( Необходимо заполнить 1-ую таблицы и ввести дебит скважины )&lt;/p&gt;&lt;p&gt;&amp;quot;График&amp;quot; - построит график совмещенных давлений&lt;/p&gt;&lt;p&gt;( Необходимо заполнить 1-ую таблицу и рассчитать/ввести глубины спуска )&lt;/p&gt;&lt;p&gt;&amp;quot;Расчитать&amp;quot; - рассчитает диаметры&lt;/p&gt;&lt;p&gt;( Необходимы глубины спуска и дебит )&lt;/p&gt;&lt;p&gt;Если ничего не происходит, значит вы ввели что-то не так, или оно сломалось!!&lt;/p&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+      <widget class="QWidget" name="">
+       <property name="geometry">
+        <rect>
+         <x>270</x>
+         <y>60</y>
+         <width>198</width>
+         <height>22</height>
+        </rect>
+       </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <item>
+         <widget class="QLabel" name="label_2">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>17</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: bold 14px;
+max-height: 1em;</string>
+          </property>
+          <property name="text">
+           <string>ДЕБИТ</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLineEdit" name="lineEdit">
+          <property name="maximumSize">
+           <size>
+            <width>70</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLineEdit {
+    border: 2px solid gray;
+    padding: 0 8px;
+}</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="minimumSize">
+           <size>
+            <width>80</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">font: bold 14px;
+</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </widget>
      </widget>
     </widget>
@@ -353,92 +720,6 @@ max-height: 1em;</string>
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <widget class="QTableWidget" name="tableWidget_2">
-       <property name="geometry">
-        <rect>
-         <x>20</x>
-         <y>140</y>
-         <width>931</width>
-         <height>301</height>
-        </rect>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">border: 1px solid black;</string>
-       </property>
-       <row>
-        <property name="text">
-         <string>Диаметр долота, мм</string>
-        </property>
-       </row>
-       <row>
-        <property name="text">
-         <string>Диаметр муфты, мм</string>
-        </property>
-       </row>
-       <row>
-        <property name="text">
-         <string>Наружный диаметр, мм</string>
-        </property>
-       </row>
-       <row>
-        <property name="text">
-         <string>Внутренний диаметр,мм</string>
-        </property>
-       </row>
-       <row>
-        <property name="text">
-         <string>Толщина стенки обсадной колонны, мм</string>
-        </property>
-       </row>
-       <row>
-        <property name="text">
-         <string>Типоразмер обсадной колонны</string>
-        </property>
-       </row>
-       <row>
-        <property name="text">
-         <string>Глубина спуска обсадной колонны,м</string>
-        </property>
-       </row>
-       <column>
-        <property name="text">
-         <string>Направление</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Кондуктор</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Промежуточная</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Промежуточная</string>
-        </property>
-       </column>
-       <column>
-        <property name="text">
-         <string>Эксп.</string>
-        </property>
-       </column>
-      </widget>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="geometry">
-        <rect>
-         <x>770</x>
-         <y>520</y>
-         <width>93</width>
-         <height>28</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>Рассчитать!</string>
-       </property>
-      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">

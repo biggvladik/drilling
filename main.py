@@ -18,7 +18,9 @@ class ImageDialog(QMainWindow):
         self.ui.pushButton.clicked.connect(self.get_data)
         self.ui.pushButton_2.clicked.connect(self.get_graph)
         self.ui.comboBox.currentTextChanged.connect(self.check_label)
-        self.ui.pushButton_3.clicked.connect(self.calculate_table)
+        self.well = None
+        self.ui.pushButton_4.clicked.connect(self.calculate_table)
+        self.check_label()
 
         try:
             self.test_table()
@@ -39,30 +41,30 @@ class ImageDialog(QMainWindow):
 
                         elif column ==1:
                             H.append(float(self.ui.tableWidget.item(row, column).text()))
-           # print(H,P)
-         #   return H,P
-            well1 = Well(H, P, self.ui.comboBox.currentText(), int(self.ui.lineEdit.text()))
-            well1.coefficients()
-            well1.compatible_conditions()
-          #  print('Конди в мэин',well1.condi)
-            intervals = well1.condi[0]
+            self.well  = Well(H, P, self.ui.comboBox.currentText(), int(self.ui.lineEdit.text()))
+            self.well.coefficients()
+            self.well.compatible_conditions()
+            intervals = self.well.condi[0]
             for i in range(len(intervals)):
                 self.ui.tableWidget_3.setItem(0, i, QTableWidgetItem(str(intervals[i])))
+
         except:
             print(traceback.format_exc())
 
 
     def get_graph(self):
-        global intervals
         try:
-            H,P = self.get_data()
-            H_intervals, intervals, graph = CPG(H,P)
-            print(H_intervals,intervals)
-            self.ui.lineEdit_2.setText(str(intervals))
+            intervals = []
 
-            for column in range(0, self.ui.tableWidget_3.columnCount()):
-                for row in range(len(H_intervals)):
-                    self.ui.tableWidget_3.setItem(row, column, QTableWidgetItem(str(H_intervals[row])))
+            for column in range(4):
+                item = self.ui.tableWidget_3.item(column, 0)
+                if item is not None:
+                    intervals.append(float(item.text()))
+            self.well.condi[0] = intervals
+        except:
+            print(traceback.format_exc())
+        try:
+            self.well.graphic()
         except:
             print(traceback.format_exc())
 
@@ -75,20 +77,10 @@ class ImageDialog(QMainWindow):
 
     def calculate_table(self):
         try:
-            Q = int(self.ui.lineEdit.text())
-            intervals = int(self.ui.lineEdit_2.text())
-            Type = str(self.ui.comboBox.currentText())
-            H_intervals = []
+            # Меняем интервалы в классе, если их изменили
+            data = self.well.construction()
+            self.ui.lineEdit_2.setText(str(self.well.cementing()))
 
-            for row in range(4):
-                if self.ui.tableWidget_3.item(row, 0):
-                    print(1)
-                    H_intervals.append(int(self.ui.tableWidget_3.item(row, 0).text()))
-
-            print(H_intervals[::-1],intervals,Q,Type)
-
-
-            data = construction(H_intervals[::-1],intervals,Q,Type)
             print(data)
 
             N = [ i for i in data[0].values()]
