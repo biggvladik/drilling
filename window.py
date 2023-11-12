@@ -219,7 +219,7 @@ class Ui_MainWindow(object):
         self.label_5.setObjectName("label_5")
         self.horizontalLayout_4.addWidget(self.label_5)
         self.tableWidget_2 = QtWidgets.QTableWidget(self.frame_2)
-        self.tableWidget_2.setGeometry(QtCore.QRect(30, 400, 744, 214))
+        self.tableWidget_2.setGeometry(QtCore.QRect(30, 400, 742, 236))
         self.tableWidget_2.setStyleSheet("QTableWidget {\n"
 "                background-color: rgb(187, 255, 216);\n"
 "                border: 2px solid black;\n"
@@ -310,7 +310,11 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         item.setFont(font)
         self.tableWidget_2.setHorizontalHeaderItem(4, item)
-        self.tableWidget_2.horizontalHeader().setVisible(False)
+        self.tableWidget_2.horizontalHeader().setVisible(True)
+        self.tableWidget_2.horizontalHeader().setCascadingSectionResizes(False)
+        self.tableWidget_2.horizontalHeader().setHighlightSections(True)
+        self.tableWidget_2.verticalHeader().setVisible(True)
+        self.tableWidget_2.verticalHeader().setHighlightSections(True)
         self.pushButton_4 = QtWidgets.QPushButton(self.frame_2)
         self.pushButton_4.setGeometry(QtCore.QRect(410, 230, 91, 31))
         self.pushButton_4.setStyleSheet("QPushButton#pushButton_4 {\n"
@@ -338,6 +342,7 @@ class Ui_MainWindow(object):
 "")
         self.label_6.setObjectName("label_6")
         self.pushButton_5 = QtWidgets.QPushButton(self.frame_2)
+        self.pushButton_5.setEnabled(False)
         self.pushButton_5.setGeometry(QtCore.QRect(410, 270, 91, 31))
         self.pushButton_5.setStyleSheet("QPushButton#pushButton_5 {\n"
 "    border-style: outset;\n"
@@ -352,19 +357,19 @@ class Ui_MainWindow(object):
 "}\n"
 "")
         self.pushButton_5.setObjectName("pushButton_5")
-        self.widget = QtWidgets.QWidget(self.frame_2)
-        self.widget.setGeometry(QtCore.QRect(270, 60, 198, 22))
-        self.widget.setObjectName("widget")
-        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.widget)
+        self.layoutWidget1 = QtWidgets.QWidget(self.frame_2)
+        self.layoutWidget1.setGeometry(QtCore.QRect(270, 60, 198, 22))
+        self.layoutWidget1.setObjectName("layoutWidget1")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.layoutWidget1)
         self.horizontalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout_2.setObjectName("horizontalLayout_2")
-        self.label_2 = QtWidgets.QLabel(self.widget)
+        self.label_2 = QtWidgets.QLabel(self.layoutWidget1)
         self.label_2.setMaximumSize(QtCore.QSize(50, 17))
         self.label_2.setStyleSheet("font: bold 14px;\n"
 "max-height: 1em;")
         self.label_2.setObjectName("label_2")
         self.horizontalLayout_2.addWidget(self.label_2)
-        self.lineEdit = QtWidgets.QLineEdit(self.widget)
+        self.lineEdit = QtWidgets.QLineEdit(self.layoutWidget1)
         self.lineEdit.setMaximumSize(QtCore.QSize(70, 16777215))
         self.lineEdit.setStyleSheet("QLineEdit {\n"
 "    border: 2px solid gray;\n"
@@ -372,7 +377,7 @@ class Ui_MainWindow(object):
 "}")
         self.lineEdit.setObjectName("lineEdit")
         self.horizontalLayout_2.addWidget(self.lineEdit)
-        self.label_4 = QtWidgets.QLabel(self.widget)
+        self.label_4 = QtWidgets.QLabel(self.layoutWidget1)
         self.label_4.setMinimumSize(QtCore.QSize(80, 0))
         self.label_4.setStyleSheet("font: bold 14px;\n"
 "")

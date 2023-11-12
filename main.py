@@ -22,10 +22,10 @@ class ImageDialog(QMainWindow):
         self.check_label()
         self.ui.pushButton_5.clicked.connect(self.create_pdf)
 
-        try:
-            self.test_table()
-        except:
-            print(traceback.format_exc())
+     #   try:
+          #  self.test_table()
+     #   except:
+        #    print(traceback.format_exc())
 
     def get_data(self):
         try:
@@ -45,8 +45,8 @@ class ImageDialog(QMainWindow):
             self.well.coefficients()
             self.well.compatible_conditions()
             intervals = self.well.condi[0]
-            for i in range(len(intervals)):
-                self.ui.tableWidget_3.setItem(0, i, QTableWidgetItem(str(intervals[i])))
+            for i in range(1,len(intervals)):
+                self.ui.tableWidget_3.setItem(0, i-1, QTableWidgetItem(str(intervals[i])))
 
         except:
             print(traceback.format_exc())
@@ -54,7 +54,7 @@ class ImageDialog(QMainWindow):
 
     def get_graph(self):
         try:
-            intervals = []
+            intervals = [0]
 
             for column in range(4):
                 item = self.ui.tableWidget_3.item(column, 0)
@@ -115,71 +115,78 @@ class ImageDialog(QMainWindow):
             print(traceback.format_exc())
 
 
-    def test_table(self):
-        H = [200, 500, 900, 1400, 1800, 2000, 2340, 2700, 2950, 3300]
-        Pre = [2.1, 6.05, 7.96, 12.56, 18, 29.67, 27.31, 30.93, 31.42, 37.09]
-
-        for row in range(len(H)):
-            self.ui.tableWidget.setItem(row, 1, QTableWidgetItem(str(H[row])))
-
-
-        for row in range(len(Pre)):
-            self.ui.tableWidget.setItem(row, 0, QTableWidgetItem(str(Pre[row])))
+    # def test_table(self):
+    #     H = [200, 500, 900, 1400, 1800, 2000, 2340, 2700, 2950, 3300]
+    #     Pre = [2.1, 6.05, 7.96, 12.56, 18, 29.67, 27.31, 30.93, 31.42, 37.09]
+    #
+    #     for row in range(len(H)):
+    #         self.ui.tableWidget.setItem(row, 1, QTableWidgetItem(str(H[row])))
+    #
+    #
+    #     for row in range(len(Pre)):
+    #         self.ui.tableWidget.setItem(row, 0, QTableWidgetItem(str(Pre[row])))
 
 
 
 
 
     def create_pdf(self):
-        # Получаем данные таблицы и создаем PDF файл
-        data = []
-        P = []
-        H = []
+        try:
+            # Получаем данные таблицы и создаем PDF файл
+            data = []
+            P = []
+            H = []
 
-        # Записываем 1ую таблицу
-        for row in range(self.ui.tableWidget.rowCount()):
-            for column in range(self.ui.tableWidget.columnCount()):
-                item = self.ui.tableWidget.item(row, column)
-                if item is not None:
-                    if column == 0:
-                        P.append(item.text())
-                    else:
-                        H.append(item.text())
-                    data.append(item.text())
+            # Записываем 1ую таблицу
+            for row in range(self.ui.tableWidget.rowCount()):
+                for column in range(self.ui.tableWidget.columnCount()):
+                    item = self.ui.tableWidget.item(row, column)
+                    if item is not None:
+                        if column == 0:
+                            P.append(item.text())
+                        else:
+                            H.append(item.text())
+                        data.append(item.text())
 
-        pdf_file = "example.pdf"
+            pdf_file = "example.pdf"
 
-        c = canvas.Canvas(pdf_file, pagesize=letter)
+            c = canvas.Canvas(pdf_file, pagesize=letter)
 
-        # Записываем данные в PDF файл
-        x = 50
-        y = 750
-        c.drawString(x, y, 'H, m')
-        y-=20
-        for item in H:
-            c.drawString(x, y, item)
+            # Записываем данные в PDF файл
+            x = 50
+            y = 750
+            c.drawString(x, y, 'H, м')
+            y-=20
+            for item in H:
+                c.drawString(x, y, item)
+                y -= 20
+                if y < 50:
+                    c.showPage()
+                    y = 750
+            x = 150
+            y = 750
+            c.drawString(x, y, 'P, МПа')
             y -= 20
-            if y < 50:
-                c.showPage()
-                y = 750
-        x = 150
-        y = 750
-        c.drawString(x, y, 'P, MPa')
-        y -= 20
-        for item in P:
-            c.drawString(x, y, item)
-            y -= 20
-            if y < 50:
-                c.showPage()
-                y = 750
+            for item in P:
+                c.drawString(x, y, item)
+                y -= 20
+                if y < 50:
+                    c.showPage()
+                    y = 750
 
-        # Записываем 2ую таблицу
+            # Записываем Тип скважины, дебит, V цемента
+                c.drawString(250, 750, f'Тип скважины: {self.ui.comboBox.currentText()}')
+                c.drawString(250,730,f"Дебит: {self.ui.lineEdit.text()} {self.ui.label_4.text()} ")
+                c.drawString(250, 710, f"V цемента: {self.ui.lineEdit_2.text()}  {self.ui.label_5.text()}")
 
 
 
-        c.save()
 
-        print("PDF файл создан!")
+            c.save()
+
+            print("PDF файл создан!")
+        except:
+            print(traceback.format_exc())
 
 
 

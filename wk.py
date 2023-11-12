@@ -43,45 +43,45 @@ class Well:
         self.coef=[self.H,Ka,Kp,Kgr,p_min,p_max]
         return self.coef
 
-    def compatible_conditions(self):
-
-        H_line=[50]       #Грлубины спуска ОК
-        min_line=[]     #Минимумы плотностей
-        max_line=[]     #Максимумы плотностей
-
-        # Добавление начальной точки
-        self.coef[0].insert(0, 0)
-        self.coef[1].insert(0, self.coef[1][0])
-        self.coef[2].insert(0, self.coef[2][0])
-        self.coef[3].insert(0, self.coef[3][0])
-        self.coef[4].insert(0, self.coef[4][0])
-        self.coef[5].insert(0, self.coef[5][0])
-
-        #Определение совместимых условий бурения
-        d=0        #Подошва предидущего интервала
-        for k in range(2,len(self.H)):
-            if self.coef[4][k]>min(self.coef[5][self.H.index(d)+1:k+1]):
-                H_line.append(self.H[k])
-                min_line.append(max(self.coef[4][self.H.index(d):k]))
-                max_line.append(min(self.coef[5][self.H.index(d):k]))
-                d=self.H[k]
-
-            elif max(self.coef[4][self.H.index(d)+1:k+1])>self.coef[5][k]:
-                H_line.append(self.H[k])
-                min_line.append(max(self.coef[4][self.H.index(d):k]))
-                max_line.append(min(self.coef[5][self.H.index(d):k]))
-                d=self.H[k]
-
-            elif k==len(self.H)-1:
-                H_line.append(self.H[k])
-                min_line.append(max(self.coef[4][self.H.index(d)+1:k+1]))
-                max_line.append(min(self.coef[5][self.H.index(d)+1:k+1]))
-                d=self.H[k]
-
-
-        self.condi=[H_line,min_line,max_line]
-        print('CONDI',self.condi)
-        return self.condi
+    # def compatible_conditions(self):
+    #
+    #     H_line=[50]       #Грлубины спуска ОК
+    #     min_line=[]     #Минимумы плотностей
+    #     max_line=[]     #Максимумы плотностей
+    #
+    #     # Добавление начальной точки
+    #     self.coef[0].insert(0, 0)
+    #     self.coef[1].insert(0, self.coef[1][0])
+    #     self.coef[2].insert(0, self.coef[2][0])
+    #     self.coef[3].insert(0, self.coef[3][0])
+    #     self.coef[4].insert(0, self.coef[4][0])
+    #     self.coef[5].insert(0, self.coef[5][0])
+    #
+    #     #Определение совместимых условий бурения
+    #     d=0        #Подошва предидущего интервала
+    #     for k in range(2,len(self.H)):
+    #         if self.coef[4][k]>min(self.coef[5][self.H.index(d)+1:k+1]):
+    #             H_line.append(self.H[k])
+    #             min_line.append(max(self.coef[4][self.H.index(d):k]))
+    #             max_line.append(min(self.coef[5][self.H.index(d):k]))
+    #             d=self.H[k]
+    #
+    #         elif max(self.coef[4][self.H.index(d)+1:k+1])>self.coef[5][k]:
+    #             H_line.append(self.H[k])
+    #             min_line.append(max(self.coef[4][self.H.index(d):k]))
+    #             max_line.append(min(self.coef[5][self.H.index(d):k]))
+    #             d=self.H[k]
+    #
+    #         elif k==len(self.H)-1:
+    #             H_line.append(self.H[k])
+    #             min_line.append(max(self.coef[4][self.H.index(d)+1:k+1]))
+    #             max_line.append(min(self.coef[5][self.H.index(d)+1:k+1]))
+    #             d=self.H[k]
+    #
+    #
+    #     self.condi=[H_line,min_line,max_line]
+    #     print('CONDI',self.condi)
+    #     return self.condi
 
     def graphic(self):
 
@@ -93,7 +93,7 @@ class Well:
         plt.step(x=self.coef[5], y=self.coef[0], data=None, where='post', marker='.',label="Максимальная плотность БР")
 
         #Обозначение совместимых условий
-        plt.fill_between(x=[self.coef[4][0], self.coef[5][0]], y1=0, y2=50, color='g', alpha=0.4)
+      #  plt.fill_between(x=[self.coef[4][0], self.coef[5][0]], y1=0, y2=50, color='g', alpha=0.4)
         for l in range(len(self.condi[0])-1):
             plt.fill_between(x=[self.condi[1][l],self.condi[2][l]],y1=self.condi[0][l],y2=self.condi[0][l+1], color='g', alpha=0.4)
 
@@ -156,7 +156,7 @@ class Well:
                 d = key
                 s = round(0.5 * (D - d), 1)
                 break
-        for i in range(count_intervals):
+        for i in range(count_intervals-1):
             well_construcion.append(
                 {'Db': 0, 'Dm': 0, 'D': D, 'd': d, 's': s, 'size': int(D + (0.5 if D > 0 else -0.5)),
                  'H_intervals': H_intervals[i]})
@@ -182,25 +182,86 @@ class Well:
 
         return well_construcion[::-1]
 
+    # def cementing(self):
+    #
+    #     V_cement=0
+    #
+    #     for g in range(len(well_construcion)):
+    #         V_cement+=(well_construcion[g]['d']**2*math.pi*10**-5)/4    #Расчет цементного стакана
+    #         if g==1:                                                #Расчет V1 для направления
+    #             V_cement +=(math.pi * (well_construcion[g]['Db'] ** 2 - well_construcion[g]['D'] ** 2) * (
+    #                         well_construcion[g]['H_intervals']) * 10 ** -6)/ 4
+    #         else:                                                   #Расчет V1 и V2 для остальных интервалов
+    #             V_cement+=(math.pi*(well_construcion[g]['Db']**2-well_construcion[g]['D']**2)*(
+    #                 well_construcion[g-1]['H_intervals']-well_construcion[g]['H_intervals'])*10**-6)/4
+    #             if self.well_type=='Нефтяная':
+    #                 V_cement+=(math.pi*(well_construcion[g-1]['d']**2-well_construcion[g]['D']**2)*150*10**-6)/4
+    #             elif self.well_type=='Газовая':
+    #                 V_cement+=(math.pi*(well_construcion[g-1]['d']**2-well_construcion[g]['D']**2)*500*10**-6)/4
+    #     return round(V_cement,3)
+
     def cementing(self):
-
-        V_cement=0
-
+        V_cement = 0
         for g in range(len(well_construcion)):
-            V_cement+=(well_construcion[g]['d']**2*math.pi*10**-5)/4    #Расчет цементного стакана
-            if g==1:                                                #Расчет V1 для направления
-                V_cement +=(math.pi * (well_construcion[g]['Db'] ** 2 - well_construcion[g]['D'] ** 2) * (
-                            well_construcion[g]['H_intervals']) * 10 ** -6)/ 4
-            else:                                                   #Расчет V1 и V2 для остальных интервалов
-                V_cement+=(math.pi*(well_construcion[g]['Db']**2-well_construcion[g]['D']**2)*(
-                    well_construcion[g-1]['H_intervals']-well_construcion[g]['H_intervals'])*10**-6)/4
-                if self.well_type=='Нефтяная':
-                    V_cement+=(math.pi*(well_construcion[g-1]['d']**2-well_construcion[g]['D']**2)*150*10**-6)/4
-                elif self.well_type=='Газовая':
-                    V_cement+=(math.pi*(well_construcion[g-1]['d']**2-well_construcion[g]['D']**2)*500*10**-6)/4
-        return round(V_cement,3)
+            V_cement += ((well_construcion[g][
+                              'd'] / 1000) ** 2 * math.pi * 10) / 4
+            if g == 0:
+                V_cement += (math.pi * (
+                ((well_construcion[g]['Db'] / 1000) ** 2 - (well_construcion[g]['D'] / 1000) ** 2)) *
+                             well_construcion[g]['H_intervals']) / 4
+            else:
+                V_cement += (math.pi * (
+                            (well_construcion[g - 1]['d'] / 1000) ** 2 - (well_construcion[g]['D'] / 1000) ** 2) *
+                             well_construcion[g - 1]['H_intervals']) / 4
+                if self.well_type == 'РќРµС„С‚СЏРЅР°СЏ':
+                    V_cement += (math.pi * ((well_construcion[g]['Db'] / 1000) ** 2 - (
+                                well_construcion[g]['D'] / 1000) ** 2) * 150 * 10 ** -6) / 4
+                elif self.well_type == 'Р“Р°Р·РѕРІР°СЏ':
+                    V_cement += (math.pi * ((well_construcion[g]['Db'] / 1000) ** 2 - (
+                                well_construcion[g]['D'] / 1000) ** 2) * 500 * 10 ** -6) / 4
+        return round(V_cement, 3)
 
 
+
+
+
+    def compatible_conditions(self):
+
+        H_line = [0]
+        min_line = []
+        max_line = []
+
+
+        self.coef[0].insert(0, 0)
+        self.coef[1].insert(0, self.coef[1][0])
+        self.coef[2].insert(0, self.coef[2][0])
+        self.coef[3].insert(0, self.coef[3][0])
+        self.coef[4].insert(0, self.coef[4][0])
+        self.coef[5].insert(0, self.coef[5][0])
+
+
+        d = 0
+        for k in range(1, len(self.H)):
+            if self.coef[4][k] > min(self.coef[5][self.H.index(d) + 1:k + 1]):
+                H_line.append(self.H[k - 1])
+                min_line.append(max(self.coef[4][self.H.index(d) + 1:k]))
+                max_line.append(min(self.coef[5][self.H.index(d) + 1:k]))
+                d = self.H[k - 1]
+
+            elif max(self.coef[4][self.H.index(d) + 1:k + 1]) > self.coef[5][k]:
+                H_line.append(self.H[k - 1])
+                min_line.append(max(self.coef[4][self.H.index(d) + 1:k]))
+                max_line.append(min(self.coef[5][self.H.index(d) + 1:k]))
+                d = self.H[k - 1]
+
+            elif k == len(self.H) - 1:
+                H_line.append(self.H[k])
+                min_line.append(max(self.coef[4][self.H.index(d) + 1:k + 1]))
+                max_line.append(min(self.coef[5][self.H.index(d) + 1:k + 1]))
+                d = self.H[k]
+
+        self.condi = [H_line, min_line, max_line]
+        return self.condi
 
 
 # well1=Well([50,200,700,1100,1500,2000,2100],[0.6,2.2,7.4,12.3,15.3,20,18.8],'Нефтяная',80)

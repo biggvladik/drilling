@@ -419,8 +419,8 @@ max-height: 1em;</string>
         <rect>
          <x>30</x>
          <y>400</y>
-         <width>744</width>
-         <height>214</height>
+         <width>742</width>
+         <height>236</height>
         </rect>
        </property>
        <property name="styleSheet">
@@ -435,7 +435,19 @@ QHeaderView::section {
             }</string>
        </property>
        <attribute name="horizontalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="horizontalHeaderCascadingSectionResizes">
         <bool>false</bool>
+       </attribute>
+       <attribute name="horizontalHeaderHighlightSections">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderVisible">
+        <bool>true</bool>
+       </attribute>
+       <attribute name="verticalHeaderHighlightSections">
+        <bool>true</bool>
        </attribute>
        <row>
         <property name="text">
@@ -633,6 +645,9 @@ border-color: black;
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_5">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="geometry">
         <rect>
          <x>410</x>
@@ -659,7 +674,7 @@ QPushButton#pushButton_5:hover {
         <string>PDF</string>
        </property>
       </widget>
-      <widget class="QWidget" name="">
+      <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
          <x>270</x>
